@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class TypingText extends StatefulWidget {
 
@@ -21,38 +22,36 @@ class TypingTextState
     extends State<TypingText>
     with SingleTickerProviderStateMixin {
 
-  late String text;
   late TextEditingController textController;
-  late AnimationController animationController;
+  late Timer typingTimer;
 
   int index = 0;
 
   @override
   void initState() {
     super.initState();
-    text = widget.text;
     textController = TextEditingController();
-    animationController = AnimationController(
-        duration: Duration(milliseconds: text.length * 50),
-        vsync: this
-    );
+    _startTyping();
+  }
 
-    animationController.addListener(() {
+  void _startTyping() {
+    const baseDelay = 75;
+    typingTimer = Timer.periodic(const Duration(milliseconds: baseDelay), (timer) {
       if (index < widget.text.length) {
         textController.text += widget.text[index];
         index++;
       } else {
-        animationController.stop();
-        widget.onComplete?.call();
+        timer.cancel();
+        if (widget.onComplete != null) {
+          widget.onComplete!();
+        }
       }
     });
-
-    animationController.forward();
   }
 
   @override
   void dispose() {
-    animationController.dispose();
+    typingTimer.cancel();
     textController.dispose();
     super.dispose();
   }
