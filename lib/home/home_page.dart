@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
-
-import '../widgets/typing_text/typing_text.dart';
-import '../widgets/typing_text/typing_text_entity.dart';
+import 'package:marinoszinonos/home/home_ui_constants.dart';
+import 'package:marinoszinonos/home/social_accounts.dart';
+import 'package:marinoszinonos/utils/responsive/helpers.dart';
+import 'package:marinoszinonos/widgets/auto_size_text.dart';
+import 'package:marinoszinonos/widgets/fade_in_widget.dart';
+import 'package:marinoszinonos/widgets/height.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,64 +14,45 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-
-  int counter = 0;
-
-  final texts = const [
-    TypingTextEntity(
-        text: "Hi.",
-        fontSize: 64,
-        delay: 1000
-    ),
-    TypingTextEntity(
-        text: "I'm Marinos.",
-        fontSize: 64,
-        delay: 1000
-    ),
-    TypingTextEntity(
-        text: "I'm a software engineer specializing in mobile development.",
-        fontSize: 18,
-        delay: 2000
-    ),
-    TypingTextEntity(
-        text: "Interested in discussing technology or collaborating?",
-        fontSize: 18,
-        delay: 1000
-    ),
-    TypingTextEntity(
-        text: "Let's connect!", // Make it a button
-        fontSize: 18,
-        delay: 2000
-    )
-  ];
-
-  void startNextText(int index) {
-    if (index < texts.length - 1) {
-      final nextIndex = index + 1;
-      final delay = texts[nextIndex].delay;
-      if (delay != null) {
-        Future.delayed(Duration(milliseconds: delay), () {
-          setState(() => counter = nextIndex);
-        });
-      }
-    }
-  }
+class _HomePageState
+    extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
 
   @override
-  build(context) => Column(
-      children: List.generate(texts.length, (index) {
-        if (counter >= index) {
-          return TypingText(
-              texts[index].text,
-              textStyle: TextStyle(
-                  fontSize: texts[index].fontSize,
-                  color: Colors.white
-              ),
-              onComplete: () => startNextText(index)
-          );
-        }
-        return const SizedBox.shrink();
-      }).toList()
-  );
+  get wantKeepAlive => true;
+
+  @override
+  build(context) {
+    super.build(context);
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FadeInWidget(
+              child: AutoSizeText(
+                  text: HomeUiConstants.title,
+                  style: responsive(
+                      context,
+                      desktop: Theme.of(context).textTheme.displayLarge,
+                      tablet: Theme.of(context).textTheme.displayMedium,
+                      mobile: Theme.of(context).textTheme.displaySmall
+                  ),
+                  textAlign: TextAlign.center
+              )
+          ),
+          const Height(HomeUiConstants.spacingHeight),
+          const SocialAccounts(),
+          const Height(HomeUiConstants.spacingHeight),
+          ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: List.generate(
+                  HomeUiConstants.buttonLabels.length,
+                      (index) => ElevatedButton(
+                      onPressed: () {},
+                      child: Text(HomeUiConstants.buttonLabels[index])
+                  )
+              )
+          )
+        ]
+    );
+  }
 }

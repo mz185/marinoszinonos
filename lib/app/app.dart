@@ -20,14 +20,18 @@ class App extends StatelessWidget {
         brightness: Brightness.light,
         colorSchemeSeed: Colors.blue,
         scaffoldBackgroundColor: Palette.softWhite,
-        switchTheme: AppUiConstants.switchTheme
+        switchTheme: AppUiConstants.switchTheme,
+        textTheme: AppUiConstants.textLightTheme,
+        iconButtonTheme: AppUiConstants.iconButtonTheme
     ),
     dark: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
         colorSchemeSeed: Colors.blue,
         scaffoldBackgroundColor: Palette.softBlack,
-        switchTheme: AppUiConstants.switchTheme
+        switchTheme: AppUiConstants.switchTheme,
+        textTheme: AppUiConstants.textDarkTheme,
+        iconButtonTheme: AppUiConstants.iconButtonTheme
     ),
     initial: savedThemeMode ?? AdaptiveThemeMode.light,
     builder: (theme, darkTheme) => MaterialApp(
