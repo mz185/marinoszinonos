@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marinoszinonos/ui/contact/contact_page.dart';
 import 'package:marinoszinonos/ui/home/home_page.dart';
+import 'package:marinoszinonos/utils/extensions.dart';
 import 'package:marinoszinonos/widgets/theme_switch.dart';
 
 import 'bloc/main_bloc.dart';
@@ -90,6 +91,17 @@ class _MainPageState extends State<MainPage> {
                   itemCount: MainUiConstants.pages.length,
                   itemBuilder: (context, index) =>
                       _getPage(MainUiConstants.pages[index])
+              )
+          )
+      ),
+      bottomNavigationBar: BottomAppBar(
+          child: Center(
+              child: Text(
+                  MainUiConstants.copyrightText.replacePlaceholders(
+                      values: {
+                        'year': DateTime.now().year.toString()
+                      }
+                  )
               )
           )
       )
