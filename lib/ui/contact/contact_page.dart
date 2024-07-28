@@ -5,6 +5,8 @@ import 'package:marinoszinonos/widgets/height.dart';
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
 
+  static const pageId = 'contact';
+
   @override
   ContactPageState createState() => ContactPageState();
 }

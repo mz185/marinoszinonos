@@ -2,8 +2,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:marinoszinonos/home/home_ui_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'home_ui_constants.dart';
 
 class SocialAccounts extends StatelessWidget {
   const SocialAccounts({super.key});
