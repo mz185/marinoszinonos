@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marinoszinonos/ui/contact/contact_page.dart';
 import 'package:marinoszinonos/ui/home/home_page.dart';
 import 'package:marinoszinonos/utils/extensions.dart';
+import 'package:marinoszinonos/utils/responsive/helpers.dart';
 import 'package:marinoszinonos/widgets/theme_switch.dart';
 
 import 'bloc/main_bloc.dart';
@@ -85,7 +86,11 @@ class _MainPageState extends State<MainPage> {
               child: PageView.builder(
                   controller: _pageController,
                   scrollDirection: Axis.vertical,
-                  pageSnapping: false,
+                  pageSnapping: responsive(
+                      context,
+                      desktop: false,
+                      mobile: true
+                  ),
                   clipBehavior: Clip.none,
                   padEnds: false,
                   itemCount: MainUiConstants.pages.length,
