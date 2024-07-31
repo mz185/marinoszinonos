@@ -17,17 +17,17 @@ class AppUiConstants {
   static const textLightColor = Palette.darkGrey;
   static const textDarkColor = Palette.lightGrey;
 
-  static const displayLargeTextSize = TextStyle(
+  static const displayLargeTextSizeStyle = TextStyle(
       fontSize: 64,
       fontWeight: FontWeight.bold
   );
 
-  static const displayMediumTextSize = TextStyle(
+  static const displayMediumTextStyle = TextStyle(
       fontSize: 48,
       fontWeight: FontWeight.bold
   );
 
-  static const displaySmallTextSize = TextStyle(
+  static const displaySmallTextStyle = TextStyle(
       fontSize: 32,
       fontWeight: FontWeight.bold
   );
@@ -35,15 +35,15 @@ class AppUiConstants {
   static final textLightTheme = TextTheme(
       displayLarge: GoogleFonts.lato(
           color: textLightColor,
-          textStyle: displayLargeTextSize
+          textStyle: displayLargeTextSizeStyle
       ),
       displayMedium: GoogleFonts.lato(
           color: textLightColor,
-          textStyle: displayMediumTextSize
+          textStyle: displayMediumTextStyle
       ),
       displaySmall: GoogleFonts.lato(
           color: textLightColor,
-          textStyle: displaySmallTextSize
+          textStyle: displaySmallTextStyle
       ),
       // headlineLarge: GoogleFonts.lato(color: textLightColor),
       // headlineMedium: GoogleFonts.lato(color: textLightColor),
@@ -52,7 +52,7 @@ class AppUiConstants {
       // titleMedium: GoogleFonts.lato(color: textLightColor),
       // titleSmall: GoogleFonts.lato(color: textLightColor),
       // bodyLarge: GoogleFonts.lato(color: textLightColor),
-      // bodyMedium: GoogleFonts.lato(color: textLightColor),
+      bodyMedium: GoogleFonts.lato(color: textLightColor),
       // bodySmall: GoogleFonts.lato(color: textLightColor),
       // labelLarge: GoogleFonts.lato(color: textLightColor),
       // labelMedium: GoogleFonts.lato(color: textLightColor),
@@ -62,15 +62,15 @@ class AppUiConstants {
   static final textDarkTheme = TextTheme(
       displayLarge: GoogleFonts.lato(
           color: textDarkColor,
-          textStyle: displayLargeTextSize
+          textStyle: displayLargeTextSizeStyle
       ),
       displayMedium: GoogleFonts.lato(
           color: textDarkColor,
-          textStyle: displayMediumTextSize
+          textStyle: displayMediumTextStyle
       ),
       displaySmall: GoogleFonts.lato(
           color: textDarkColor,
-          textStyle: displaySmallTextSize
+          textStyle: displaySmallTextStyle
       ),
       // headlineLarge: GoogleFonts.lato(color: textDarkColor),
       // headlineMedium: GoogleFonts.lato(color: textDarkColor),
@@ -79,7 +79,7 @@ class AppUiConstants {
       // titleMedium: GoogleFonts.lato(color: textDarkColor),
       // titleSmall: GoogleFonts.lato(color: textDarkColor),
       // bodyLarge: GoogleFonts.lato(color: textDarkColor),
-      // bodyMedium: GoogleFonts.lato(color: textDarkColor),
+      bodyMedium: GoogleFonts.lato(color: textDarkColor),
       // bodySmall: GoogleFonts.lato(color: textDarkColor),
       // labelLarge: GoogleFonts.lato(color: textDarkColor),
       // labelMedium: GoogleFonts.lato(color: textDarkColor),

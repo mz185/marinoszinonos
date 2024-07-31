@@ -2,6 +2,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marinoszinonos/ui/components/source_code/source_code.dart';
 import 'package:marinoszinonos/ui/contact/contact_page.dart';
 import 'package:marinoszinonos/ui/home/home_page.dart';
 import 'package:marinoszinonos/utils/extensions.dart';
@@ -58,11 +59,22 @@ class _MainPageState extends State<MainPage> {
   build(context) => Scaffold(
       appBar: AppBar(
           forceMaterialTransparency: true,
-          automaticallyImplyLeading: false,
+          leadingWidth: context.screenWidth / 2,
+          leading: const Padding(
+              padding: EdgeInsets.only(
+                  left: MainUiConstants.pagePadding
+              ),
+              child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(child: SourceCode())
+                  ]
+              )
+          ),
           actions: [
             Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: MainUiConstants.pagePadding
+                padding: const EdgeInsets.only(
+                    right: MainUiConstants.pagePadding
                 ),
                 child: ThemeSwitch(
                     isDarkMode: AdaptiveTheme.of(context).mode.isDark,
@@ -106,7 +118,9 @@ class _MainPageState extends State<MainPage> {
                       values: {
                         'year': DateTime.now().year.toString()
                       }
-                  )
+                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center
               )
           )
       )
