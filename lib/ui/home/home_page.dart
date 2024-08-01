@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marinoszinonos/ui/components/primary_button/primary_button.dart';
 import 'package:marinoszinonos/ui/components/social_accounts/social_accounts.dart';
 import 'package:marinoszinonos/ui/main/bloc/main_bloc.dart';
 import 'package:marinoszinonos/ui/main/bloc/page_event.dart';
@@ -51,13 +52,13 @@ class _HomePageState
               const Height(HomeUiConstants.spacingHeight),
               ButtonBar(
                   alignment: MainAxisAlignment.center,
-                  children: HomeUiConstants.buttons.map((button) {
-                    return ElevatedButton(
-                        onPressed: () => BlocProvider.of<MainBloc>(context)
-                            .add(ButtonPressed(button.id)),
-                        child: Text(button.label)
-                    );
-                  }).toList()
+                  children: HomeUiConstants.buttons.map((button) =>
+                      PrimaryButton(
+                          onPressed: () => BlocProvider.of<MainBloc>(context)
+                              .add(ButtonPressed(button.id)),
+                          iconData: button.iconData,
+                          text: button.text
+                      )).toList()
               )
             ]
         )
