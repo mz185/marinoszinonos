@@ -42,43 +42,43 @@ class ContactPageState extends State<ContactPage> {
       children: [
         TextFormField(
           controller: _nameController,
-          decoration: InputDecoration(labelText: 'Name'),
+          decoration: const InputDecoration(labelText: 'Name'),
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your name';
             }
             return null;
-          },
+          }
         ),
         TextFormField(
           controller: _emailController,
-          decoration: InputDecoration(labelText: 'Email'),
+          decoration: const InputDecoration(labelText: 'Email'),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your email';
+              return 'Enter your email';
             }
             if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-              return 'Please enter a valid email address';
+              return 'Enter a valid email address';
             }
             return null;
-          },
+          }
         ),
         TextFormField(
           controller: _messageController,
-          decoration: InputDecoration(labelText: 'Message'),
+          decoration: const InputDecoration(labelText: 'Message'),
           maxLines: 5,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter a message';
+              return 'Enter a message';
             }
             return null;
-          },
+          }
         ),
         const Height(16),
         Center(
           child: ElevatedButton(
             onPressed: _submitForm,
-            child: Text('Submit'),
+            child: const Text('Submit')
           )
         )
       ]
