@@ -22,7 +22,7 @@ def send_email(request):
     )
 
     if not sender.email:
-        return jsonify({"error": "No message provided"}), 400
+        return jsonify({"error": "No email provided"}), 400
 
     if not sender.message:
         return jsonify({"error": "No message provided"}), 400
