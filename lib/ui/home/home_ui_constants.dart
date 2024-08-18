@@ -4,7 +4,8 @@ import 'package:marinoszinonos/domain/entities/button_entity.dart';
 import 'package:marinoszinonos/ui/home/enum/home_button_id.dart';
 
 class HomeUiConstants {
-  static const title = 'MARINOS ZINONOS';
+  static const pageId = 'home';
+  static const titleText = 'MARINOS ZINONOS';
 
   static const double spacingHeight = 8;
 

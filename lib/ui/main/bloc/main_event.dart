@@ -9,7 +9,9 @@ sealed class MainEvent extends Equatable {
 final class ButtonPressed extends MainEvent {
   final ButtonId buttonId;
 
-  const ButtonPressed(this.buttonId);
+  const ButtonPressed({
+    required this.buttonId
+  });
 
   @override
   List<Object> get props => [buttonId];
@@ -18,7 +20,9 @@ final class ButtonPressed extends MainEvent {
 final class PageChanged extends MainEvent {
   final String pageId;
 
-  const PageChanged(this.pageId);
+  const PageChanged({
+    required this.pageId
+  });
 
   @override
   List<Object> get props => [pageId];

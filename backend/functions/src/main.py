@@ -5,7 +5,7 @@ from flask import jsonify
 from sendgrid.helpers.mail import Mail, ReplyTo
 from sendgrid.sendgrid import SendGridAPIClient
 
-from model.sender import Sender
+from models.sender import Sender
 
 # Initialize the Firebase Admin SDK
 cred = credentials.ApplicationDefault()
@@ -43,7 +43,6 @@ def send_email(request):
 
     try:
         response = sg.send(email)
-        return jsonify(
-            {"message": "Email sent successfully", "status_code": response.status_code}), 200
+        return response.status_code
     except Exception as e:
         return jsonify({"error": str(e)}), 500

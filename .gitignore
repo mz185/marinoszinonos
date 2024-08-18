@@ -27,3 +27,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore the Firebase options file
+lib/firebase_options.dart
+
+# Ignore the Firebase configuration file
+firebase.json

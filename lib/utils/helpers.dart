@@ -7,7 +7,7 @@ Future<void> launchUrl(String url) async {
   if (!await launcher.launchUrl(uri)) {
     // Note: Always returns false but there is an issue open:
     // https://github.com/flutter/flutter/issues/139783
-    // TODO: Log error with crashlytics
+    // TODO: Log error
     if (kDebugMode) {
       debugPrint('Could not launch $uri');
     }

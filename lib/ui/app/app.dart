@@ -2,6 +2,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marinoszinonos/ui/contact/bloc/contact_bloc.dart';
 import 'package:marinoszinonos/ui/main/bloc/main_bloc.dart';
 import 'package:marinoszinonos/ui/main/main_page.dart';
 import 'package:marinoszinonos/utils/palette.dart';
@@ -41,8 +42,15 @@ class App extends StatelessWidget {
           theme: theme,
           darkTheme: darkTheme,
           debugShowCheckedModeBanner: false,
-          home: BlocProvider(
-              create: (context) => MainBloc(),
+          home: MultiBlocProvider(
+              providers: [
+                BlocProvider<MainBloc>(
+                    create: (context) => MainBloc()
+                ),
+                BlocProvider<ContactBloc>(
+                    create: (context) => ContactBloc()
+                )
+              ],
               child: const MainPage()
           )
       )

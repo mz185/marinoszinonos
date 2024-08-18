@@ -8,9 +8,9 @@ class MainState extends Equatable {
   const MainState({required this.currentPageId});
 
   @override
-  List<Object> get props => [currentPageId];
+  List<Object?> get props => [currentPageId];
 }
 
-class PageInitial extends MainState {
-  const PageInitial() : super(currentPageId: HomePage.pageId);
+class InitialMainState extends MainState {
+  const InitialMainState() : super(currentPageId: HomePage.pageId);
 }

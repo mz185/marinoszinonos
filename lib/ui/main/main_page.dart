@@ -10,8 +10,8 @@ import 'package:marinoszinonos/utils/responsive/helpers.dart';
 import 'package:marinoszinonos/widgets/theme_switch.dart';
 
 import 'bloc/main_bloc.dart';
+import 'bloc/main_event.dart';
 import 'bloc/main_state.dart';
-import 'bloc/page_event.dart';
 import 'main_ui_constants.dart';
 
 class MainPage extends StatefulWidget {
@@ -40,8 +40,11 @@ class _MainPageState extends State<MainPage> {
   void _onPageChanged() {
     final pageIndex = _pageController.page?.round();
     if (pageIndex != null) {
-      BlocProvider.of<MainBloc>(context)
-          .add(PageChanged(MainUiConstants.pages[pageIndex]));
+      BlocProvider.of<MainBloc>(context).add(
+          PageChanged(
+              pageId: MainUiConstants.pages[pageIndex]
+          )
+      );
     }
   }
 

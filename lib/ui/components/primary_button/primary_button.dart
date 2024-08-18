@@ -4,13 +4,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:marinoszinonos/widgets/leading_elevated_button.dart';
 
 class PrimaryButton extends StatelessWidget {
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
   final IconData? iconData;
   final String text;
 
   const PrimaryButton({
     super.key,
-    this.onPressed,
+    required this.onPressed,
     this.iconData,
     required this.text
   });

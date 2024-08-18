@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marinoszinonos/ui/components/primary_button/primary_button.dart';
 import 'package:marinoszinonos/ui/components/social_accounts/social_accounts.dart';
 import 'package:marinoszinonos/ui/main/bloc/main_bloc.dart';
-import 'package:marinoszinonos/ui/main/bloc/page_event.dart';
+import 'package:marinoszinonos/ui/main/bloc/main_event.dart';
 import 'package:marinoszinonos/utils/responsive/helpers.dart';
 import 'package:marinoszinonos/widgets/auto_size_text.dart';
 import 'package:marinoszinonos/widgets/fade_in_widget.dart';
@@ -15,7 +15,7 @@ import 'home_ui_constants.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  static const pageId = 'home';
+  static const pageId = HomeUiConstants.pageId;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -37,7 +37,7 @@ class _HomePageState
             children: [
               FadeInWidget(
                   child: AutoSizeText(
-                      text: HomeUiConstants.title,
+                      text: HomeUiConstants.titleText,
                       style: responsive(
                           context,
                           desktop: Theme.of(context).textTheme.displayLarge,
@@ -54,8 +54,13 @@ class _HomePageState
                   alignment: MainAxisAlignment.center,
                   children: HomeUiConstants.buttons.map((button) =>
                       PrimaryButton(
-                          onPressed: () => BlocProvider.of<MainBloc>(context)
-                              .add(ButtonPressed(button.id)),
+                          onPressed: () {
+                            BlocProvider.of<MainBloc>(context).add(
+                                ButtonPressed(
+                                    buttonId: button.id
+                                )
+                            );
+                          },
                           iconData: button.iconData,
                           text: button.text
                       )).toList()
